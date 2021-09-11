@@ -51,4 +51,4 @@
 - Load properties file in spring config file
 	`<context:property-placeholder location="classpath:sports.properties"/>`
 - Reference values from properties file
-	`<property name="fun_name" value="${email}"/>`
+	`<property name="fun_name" value="${email}"/> `
