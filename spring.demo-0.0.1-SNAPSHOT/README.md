@@ -1,52 +1,54 @@
-Inversion of Control: It is the design process of externalizing, the construction and management of your objects. It means we need to outsource the creation and management of objects and that outsourcing is handled by object factory.
+# Spring Dependency Injection & IoC #
 
-Spring Container:
+**Inversion of Control**: It is the design process of externalizing, the construction and management of your objects. It means we need to outsource the creation and management of objects and that outsourcing is handled by object factory.
+
+#### Spring Container: ####
 - Create and manage Objects(IoC)
 - Inject object's dependencies(Dependency Injection)
 
-Configuring Spring Container:
+#### Configuring Spring Container: ####
 - XML configuration file
 - Java annotation
 - Java source code
 
-Spring Dev Process:
+#### Spring Dev Process: ####
 - Configure your Spring Beans
 	application.xml
-	<beans>
+	`<beans>
 		<bean id="myCoach" class = "spring.demo.BaseBallCoach">
 		</bean>
-	</beans>
+	</beans>`
 - Create a Spring Container
 	- Spring container is generally known as ApplicationContext.
 	- Specialized Implementations:
 		- ClassPathXmlApplicationContext
 		- AnnotationConfigApplicationContext
 		- GenericWebApplicationContext.
-	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+	`ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");`
 
 - Retrive Beans from Spring container
-	Coach coach = context.getBean("myCoach", Coach.class);
+	`Coach coach = context.getBean("myCoach", Coach.class);`
 	
-Spring Bean: It is the java objects that are created by spring container.
+**Spring Bean:** It is the java objects that are created by spring container.
 
-Spring Dependency Injection: Client deligates to call the another object(Factory) responsibel of providing its dependencies. In other words: outsource the construction and injection of your object to an external entity(Factory).
+**Spring Dependency Injection:** Client deligates to call the another object(Factory) responsible of providing its dependencies. In other words: outsource the construction and injection of your object to an external entity(Factory).
 
-Injection Types:
+#### Injection Types: ####
 - There are many types of injection with Spring
-- We will cover the two most common
+- The most common injections:
 	- Constructor Injection
-		<constructor-arg ref="reference"/>
+		`<constructor-arg ref="reference"/>`
 	- Setter Injection
-		"Injecting reference"
-		<property name="function_name" ref="reference"/>
-		"Injecting value"
-		<property name="function_name" value=val/>
+		- Injecting reference
+			`<property name="function_name" ref="reference"/>`
+		- Injecting value
+			`<property name="function_name" value=val/>`
 	- Auto Wiring
 
-Property file:
+#### Property file: ####
 - create a property file
-	filename:sports.properties
+	`filename:sports.properties`
 - Load properties file in spring config file
-	<context:property-placeholder location="classpath:sports.properties"/>
+	`<context:property-placeholder location="classpath:sports.properties"/>`
 - Reference values from properties file
-	<property name="fun_name" value="${email}"/>
+	`<property name="fun_name" value="${email}"/>`
