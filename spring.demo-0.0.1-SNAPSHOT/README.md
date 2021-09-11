@@ -13,7 +13,7 @@
 
 #### Spring Dev Process: ####
 - Configure your Spring Beans
-	application.xml
+	- file:application.xml
 	`<beans>
 		<bean id="myCoach" class = "spring.demo.BaseBallCoach">
 		</bean>
@@ -23,7 +23,7 @@
 	- Specialized Implementations:
 		- ClassPathXmlApplicationContext
 		- AnnotationConfigApplicationContext
-		- GenericWebApplicationContext.
+		- GenericWebApplicationContext.\
 	`ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");`
 
 - Retrive Beans from Spring container
