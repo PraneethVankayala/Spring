@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Loading properties file:sports.properties -->
+	
+	<context:property-placeholder location="classpath:sports.properties"/>
+	
+    <!-- Define your beans here -->
+    <bean id="myFortuneService" class="spring.demo.HappyFortuneService">
+    	<constructor-arg index="0">
+    		<list>
+    			<value>Beware of the wolf in sheep's clothing</value>
+    			<value>Diligence is the mother of good luck</value>
+    			<value>The journey is the reward</value>
+    		</list>
+    	</constructor-arg>
+    </bean>
+    <bean id="myCoach" class="spring.demo.BaseBallCoach">
+    </bean>
+    <!-- Constructor Injection -->
+    <bean id="myCoach1" class="spring.demo.TrackCoach">
+    	<constructor-arg ref="myFortuneService"/>
+    </bean>
+    <!-- Setter Injection -->
+    <bean id="myCoach2" class="spring.demo.CricketCoach">
+    	<property name="fortuneService" ref="myFortuneService"/>
+    	<!--  inject literal values -->
+    	<property name="emailAddress" value="vbsaipraneeth@gmail.com"></property>
+    	<property name="team" value="${foo.team}"/>
+    </bean>
+    
+    
+    <!-- 
+	Add a logger config to see logging messages.		
+	- For more detailed logs, set values to "FINEST" -->
+	
+	<bean id="myLoggerConfig" class="spring.demo.MyLoggerConfig" init-method="initLogger">
+		<property name="rootLoggerLevel" value="OFF"/>
+		<property name="printedLoggerLevel" value="OFF"/>
+	</bean>
+</beans>
+
+
+
+
+
