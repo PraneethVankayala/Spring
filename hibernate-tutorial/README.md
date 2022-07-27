@@ -173,3 +173,13 @@ Primary key: uniquely identifies each row in a table, must be unique and cannot 
   ``` java
   session.createQuery("delete from Student where id=2").executeUpdate();
   ```
+  
+**Advanced Mappings**
+- In database, you most likely will have
+	- Multiple Tables
+	- Relationships between Tables
+- Need to model this with hibernate
+- Three different models in hibernate
+	- One to One
+	- One to Many, Many to one
+	- Many to Many
