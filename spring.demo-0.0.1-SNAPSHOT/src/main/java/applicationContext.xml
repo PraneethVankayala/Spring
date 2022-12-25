@@ -31,7 +31,7 @@
     <bean id="myCoach2" class="spring.demo.CricketCoach">
     	<property name="fortuneService" ref="myFortuneService"/>
     	<!--  inject literal values -->
-    	<property name="emailAddress" value="vbsaipraneeth@gmail.com"></property>
+    	<property name="emailAddress" value="srh@gmail.com"></property>
     	<property name="team" value="${foo.team}"/>
     </bean>
     
